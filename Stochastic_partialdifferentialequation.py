@@ -8,7 +8,7 @@ import os
 
 
 
-
+#OPEN ended Analysis Using Stochastic Partial Differnetial Equations to fit price data, predict the future distribution
 
 ercot_df=task_1("ERCOT")
 
@@ -202,4 +202,5 @@ print(f"Saved in {save_path}")
 # Simulate & plot with KDE
 terminal_prices, kde_data = ou_terminal_distribution_kde(
     settlement_df, params, horizon_days=90, n_paths=20000, random_state=123
+
 )
