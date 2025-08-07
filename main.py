@@ -53,6 +53,8 @@ def task_2_3_bonus(ercot_df):
     #Group by settlement,year and month and print to csv
     settlement_group=ercot_df.groupby(["SettlementPoint","Year","Month"])
     average_settle_year_month_df=settlement_group["Price"].mean().reset_index()
+    
+    average_settle_year_month_df=average_settle_year_month_df.rename(columns={"Price":"AveragePrice"})
     average_settle_year_month_df.to_csv("AveragePriceByMonth.csv", index=False)
     
     ##Bonus Plot the average price by hub/loadzone. Saved in current working directory.
@@ -65,7 +67,7 @@ def task_2_3_bonus(ercot_df):
     #loops through hubs and plots
     for point in hub_df["SettlementPoint"].unique():
         subset = hub_df[hub_df["SettlementPoint"] == point]
-        plt.plot(subset["Date"], subset["Price"], label=point)
+        plt.plot(subset["Date"], subset["AveragePrice"], label=point)
     
     plt.title("Monthly Average Price by Settlement Hub")
     plt.xlabel("Date")
@@ -79,7 +81,7 @@ def task_2_3_bonus(ercot_df):
 
     for point in lz_df["SettlementPoint"].unique():
         subset = lz_df[lz_df["SettlementPoint"] == point]
-        plt.plot(subset["Date"], subset["Price"], label=point)
+        plt.plot(subset["Date"], subset["AveragePrice"], label=point)
     
     plt.title("Monthly Average Price by Load Zone")
     plt.xlabel("Date")
