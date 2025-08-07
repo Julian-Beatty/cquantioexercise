@@ -266,7 +266,7 @@ def shape_profile_bonus(ercot_df, settlement_point):
     print(f"Saved plot to {filepath}")
 
     return None
-
+###############################################Program begins here#########################################################
 
 #task 1
 data_prefix_str="ERCOT"
