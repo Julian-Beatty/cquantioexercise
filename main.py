@@ -215,9 +215,9 @@ def shape_profile_bonus(ercot_df, settlement_point):
         settlement_point (str): The settlement point to filter
 
     Returns:
-        dict: Keys = hour (0-23), Values = list of prices for that hour
+        dict: Keys = hour (0-23): Values = list of prices for that hour
     """
-    # Ensure Date is datetime
+    # Check datetime/clone df
     ercot_df = ercot_df.copy()
     ercot_df["Date"] = pd.to_datetime(ercot_df["Date"])
     
@@ -287,3 +287,4 @@ task_7(ercot_df)
 #bonus
 for settlement_point in settlments_list:
     shape_profile_bonus(ercot_df,settlement_point)
+
